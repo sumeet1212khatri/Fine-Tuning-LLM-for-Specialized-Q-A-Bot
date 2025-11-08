@@ -4,13 +4,13 @@
 ```
 https://colab.research.google.com/drive/1ECXjiFLZ-93MsSMY8gnOIxhI4YmYq2LR?usp=sharing
 ```
-Overview
+### 1 Overview
 
 This repository implements a specialized pipeline for Parameter-Efficient Fine-Tuning (PEFT) of 7B-parameter Large Language Models (LLMs) on commodity hardware.
 
 Standard full-parameter fine-tuning of Llama-2 7B requires approximately 78GB of VRAM, necessitating expensive A100-class GPUs. This project addresses that bottleneck by leveraging QLoRa (Quantized Low-Rank Adaptation) to reduce VRAM requirements by ~70%, enabling training on a single 16GB NVIDIA T4 GPU (available via Google Colab free tier) without significant performance degradation.
 
-Key Features
+### 2 Key Features
 
 4-bit Quantization: Implements NF4 (NormalFloat 4-bit) quantization with double quantization via bitsandbytes to compress the base model.
 
@@ -20,7 +20,7 @@ VRAM Optimization: Utilizes paged_adamw_8bit optimizer and gradient checkpointin
 
 Custom Dataset Support: Flexible data loader designed for unstructured text data (e.g., domain-specific documentation).
 
-Technical Approach
+### 3 Technical Approach
 
 The core problem addressed is memory constraint. Loading a 7B model in FP16 takes ~14GB. Gradients and optimizer states during standard training balloon this to >70GB.
 
@@ -70,7 +70,7 @@ Quick Start (Google Colab)
 
 The easiest way to run this project is via the provided notebook, which handles all environment setup.
 
-[Open In Colab]
+[Open In Colab][https://colab.research.google.com/drive/1ECXjiFLZ-93MsSMY8gnOIxhI4YmYq2LR?usp=sharing]
 
 Local Setup
 
